@@ -19,14 +19,42 @@
         
             function validateForm(formName) {
                 // Error messages:
+                var form = document.forms[formName];
+
+                var errorMessages=""; 
+                const idval = form.id.value;
+                if (idval.length >10){
+                    errorMessages += "ID value cannot be more than 10 char.\n";
+                }
+
                 // Invalid age: Age must be between 10 and 40.
+                const ageval = Number(form.age.value);
+                if (isNaN (ageval) || ageval < 10 || ageval > 40){
+                    errorMessages += "Age must be between 10 and 40.\n";
+                }
+
                 // Invalid email: Email must contain the character @.
+                const emailval = form.email.value 
+                if (!emailval.includes ("@")){
+                    errorMessages += "Email must contain the character @.\n";
+                }
+
                 // Empty password: Password must be non-empty.
-                var errorMessages="";
+                const passwordval = form.password.value;
+                if (passwordval.trim ().length == 0) {
+                    errorMessages += "Password must be non-empty.\n";
+                }
+            
+                if (errorMessages) {
+                    alert(errorMessages);
+                    return false; // Prevent form submission if errors
+                    
+                }
                 
-                
-            }
-     
+                return true; // No errors, allow form submission
+            
+                }
+    
          </script>
 </body>
 </html>
