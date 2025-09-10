@@ -7,6 +7,7 @@
             width: 200px;
             height: 200px;
             background-color: goldenrod;
+            border-radius: 0
         }
 
         /* add CSS code here */
@@ -26,7 +27,19 @@
     <script>
         var square=true;
        // add code here
-        
+        function changeShape (){
+            square = !square;
+            let divElem = document.getElementById ("div1");
+            console.log (square);
+            if(square) {
+                divElem.style.borderRadius = "0";
+            } else {
+                divElem.style.borderRadius = "50%";
+            }
+            
+            
+        }
+
     </script>
 
 </body>
