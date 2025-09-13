@@ -18,9 +18,18 @@
 
     <script>
         
-        // add code here
+        const item = document.getElementById ("select_item");
+        const cart = document.getElementById ("shopList");
         
-        
+        item.addEventListener ("change", function() {
+            const selecteditem = item.value;
+            // create a new list item
+            const li = document.createElement("li");
+            li.textContent = selecteditem;
+
+            // add it to the shopping cart
+            cart.appendChild(li);
+            });
     </script>
 
     
